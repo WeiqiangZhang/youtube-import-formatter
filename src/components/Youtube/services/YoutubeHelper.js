@@ -26,7 +26,7 @@ export function formatSnippet(snippet) {
     let importArray = [];
     snippet.items.map((item) => {
         const data = item.snippet;
-        const sentenceEnd = [data.description.indexOf('.'), data.description.indexOf('!'), data.description.indexOf('?')];
+        const sentenceEnd = [data.description.indexOf('\n'), data.description.indexOf('. '), data.description.indexOf('! '), data.description.indexOf('? ')];
         const sentenceEndIdx = Math.min(...sentenceEnd.filter(end => end > 0))
         let description = data.description.substring(0, sentenceEndIdx);
         description = description.length === 0 ? data.title : description;

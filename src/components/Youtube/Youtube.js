@@ -8,8 +8,7 @@ export default class Youtube extends Component {
     this.state = {
       value: '',
       loading: false,
-      snippet: null,
-      generated: false
+      snippet: null
     }
     this.textAreaRef = React.createRef();
     this.generatedTextAreaRef = React.createRef();
@@ -17,22 +16,22 @@ export default class Youtube extends Component {
 
   componentDidMount() {
     this.textAreaRef.current.rows = 2;
+    this.generatedTextAreaRef.current.rows = 2;
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.generated !== this.state.generated) this.handleRowUpdate();
     if (prevState.snippet === null && this.state.snippet) this.handleSnippetTextArea();
   }
 
-  handleChange(e) {
-    this.handleRowUpdate();
-    this.setState({ value: e.target.value, generated: false });
+  handleChange(e, ref) {
+    this.handleRowUpdate(ref);
+    this.setState({ value: e.target.value });
   }
 
-  handleRowUpdate() {
-    this.textAreaRef.current.rows = 1;
-    const updatedRows = ~~(this.textAreaRef.current.scrollHeight / 24);
-    this.textAreaRef.current.rows = updatedRows;
+  handleRowUpdate(ref) {
+    ref.current.rows = 1;
+    const updatedRows = ~~(ref.current.scrollHeight / 24);
+    ref.current.rows = updatedRows > 10 ? 10 : updatedRows;
   }
 
   handleGenerate = async (e) => {
@@ -52,6 +51,7 @@ export default class Youtube extends Component {
   handleSnippetTextArea() {
     const { snippet } = this.state;
     this.generatedTextAreaRef.current.value = formatSnippet(snippet).join("\n");
+    this.handleRowUpdate(this.generatedTextAreaRef);
     this.setState({ snippet: null });
   }
 
@@ -60,10 +60,10 @@ export default class Youtube extends Component {
     return (
       <div>
         <form onSubmit={(e) => this.handleGenerate(e)}>
-          <textarea ref={this.textAreaRef} placeholder="YouTube URL" value={value} onChange={(e) => this.handleChange(e)} disabled={loading} />
+          <textarea ref={this.textAreaRef} placeholder="YouTube URL" value={value} onChange={(e) => this.handleChange(e, this.textAreaRef)} disabled={loading} />
           <button className="secondary button" type="submit" disabled={loading}>Generate</button>
         </form>
-        <textarea ref={this.generatedTextAreaRef} placeholder="Generated Imports" onChange={(e) => this.handleChange(e)} disabled={loading} />
+        <textarea disabled ref={this.generatedTextAreaRef} placeholder="Generated Imports" />
       </div>
     );
   }
