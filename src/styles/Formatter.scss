@@ -1,0 +1,12 @@
+@import '../../node_modules/foundation-sites/scss/foundation.scss';
+
+.formatter-wrapper {
+    @include foundation-global-styles;
+    @include foundation-forms;
+    @include foundation-typography;
+    @include foundation-xy-grid-classes;
+    @include foundation-button;
+    @include foundation-menu;
+    @include foundation-top-bar;
+    height: 100%;
+}

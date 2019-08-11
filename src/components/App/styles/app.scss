@@ -1,0 +1,15 @@
+@import "styles/Formatter.scss";
+
+.app {
+    background-image: linear-gradient(to bottom, $primary-color, $secondary-color);
+    min-height: 100vh;
+    &__top-bar {
+        margin-bottom: 1.5rem;
+        &__list {
+            &:hover {
+                background-color: $dark-gray;
+                transition: background-color 0.25s ease-in;
+            }
+        }
+    }
+}

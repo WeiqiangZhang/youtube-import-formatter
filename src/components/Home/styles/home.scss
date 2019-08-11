@@ -1,0 +1,14 @@
+@import "styles/Formatter.scss";
+
+.home {
+    &__logo-container {
+        border: 1px solid $purple;
+        padding: 2.5rem;
+        margin: 0 auto;
+        text-align: center;
+        &:hover {
+            border-color: $light-gray;
+            transition: border-color 0.25s ease-in;
+        }
+    }
+}
