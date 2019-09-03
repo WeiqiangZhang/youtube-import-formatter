@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/youtube-import-formatter/static/js/runtime~main.eb7d470b.js"
   },
   {
-    "revision": "43402b1af3a0e6a7190b",
-    "url": "/youtube-import-formatter/static/js/main.6bb77e5d.chunk.js"
+    "revision": "0200f890193fe48f9125",
+    "url": "/youtube-import-formatter/static/js/main.9ecec2f2.chunk.js"
   },
   {
     "revision": "957cf92028411cec0de7",
     "url": "/youtube-import-formatter/static/js/2.6e0922ee.chunk.js"
   },
   {
-    "revision": "43402b1af3a0e6a7190b",
+    "revision": "0200f890193fe48f9125",
     "url": "/youtube-import-formatter/static/css/main.b341e328.chunk.css"
   },
   {
-    "revision": "947210c01e2378a9926f798cf1c14ee1",
+    "revision": "2deb409e53d5a917d6f0ec338fa2f381",
     "url": "/youtube-import-formatter/index.html"
   }
 ];
