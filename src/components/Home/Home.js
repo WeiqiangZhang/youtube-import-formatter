@@ -8,7 +8,7 @@ class Home extends Component {
         return (
             <div className="home">
                 <h1 className="text-center light-gray">{"Occupation Import Formatter"}</h1>
-                <Link to="/youtube">
+                <Link to="/youtube-import-formatter/youtube">
                     <div className="home__logo-container">
                         <img src={require("./assets/youtube_logo.png")} alt="" />
                     </div>
